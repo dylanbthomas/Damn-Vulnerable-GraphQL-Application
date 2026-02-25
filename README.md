@@ -1,6 +1,6 @@
 # Damn Vulnerable GraphQL Application
-Damn Vulnerable GraphQL Application is an intentionally vulnerable implementation of Facebook's GraphQL technology, to learn and practice GraphQL Security.
 
+Damn Vulnerable GraphQL Application is an intentionally vulnerable implementation of Facebook's GraphQL technology, to learn and practice GraphQL Security.
 
 <p align="center">
   <img src="https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application/blob/master/static/images/dvgql_logo.png?raw=true" width="300px" alt="DVGA"/>
@@ -23,19 +23,25 @@ Damn Vulnerable GraphQL Application is an intentionally vulnerable implementatio
 * [License](#license)
 
 # About DVGA
+
 Damn Vulnerable GraphQL is a deliberately weak and insecure implementation of GraphQL that provides a safe environment to attack a GraphQL application, allowing developers and IT professionals to test for vulnerabilities.
 
 ## DVGA Operation Support
+
 - Queries
 - Mutations
 - Subscriptions
 
-DVGA has numerous flaws, such as Injections, Code Executions, Bypasses, Denial of Service, and more. See the full list under the [Scenarios](#scenarios) section.
+DVGA has numerous flaws, such as Injections, Code Executions, Bypasses, Denial of Service, and more. See the full list under the [Scenarios](#scenarios) section. A public [Postman collection](https://www.postman.com/devrel/workspace/ab3d0551-b65d-4588-b464-1a317e8d7e98/collection/14270212-b5875c90-d36e-43f4-8bd7-2c81b556245d?action=share&creator=14270212) is also available to replay solutions to the challenges. You can import the collection by clicking on the Run in Postman button below.
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/14270212-b5875c90-d36e-43f4-8bd7-2c81b556245d?action=collection%2Ffork&collection-url=entityId%3D14270212-b5875c90-d36e-43f4-8bd7-2c81b556245d%26entityType%3Dcollection%26workspaceId%3Dab3d0551-b65d-4588-b464-1a317e8d7e98)
 
 # Operation Modes
+
 DVGA supports Beginner and Expert level game modes, which will change the exploitation difficulty.
 
 # Scenarios
+
 * **Reconnaissance**
   * Discovering GraphQL
   * Fingerprinting GraphQL
@@ -68,8 +74,10 @@ DVGA supports Beginner and Expert level game modes, which will change the exploi
   * Arbitrary File Write // Path Traversal
 
 # Prerequisites
+
 The following Python3 libraries are required:
-* Python3 (3.6 - 3.9) (3.10 is not supported)
+
+* Python3 (3.6 - 3.10)
 * Flask
 * Flask-SQLAlchemy
 * Flask-Sockets
@@ -84,52 +92,66 @@ See [requirements.txt](requirements.txt) for dependencies.
 # Installation
 
 ## Docker
+
 ### Clone the repository
-`git clone git@github.com:dolevf/Damn-Vulnerable-GraphQL-Application.git && cd Damn-Vulnerable-GraphQL-Application`
+
+`git clone https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application.git && cd Damn-Vulnerable-GraphQL-Application`
 
 ### Build the Docker image
+
 `docker build -t dvga .`
 
 ### Create a container from the image
-`docker run -t -p 5013:5013 -e WEB_HOST=0.0.0.0 dvga`
+
+`docker run -d -t -p 5013:5013 -e WEB_HOST=0.0.0.0 --name dvga dvga`
 
 In your browser, navigate to http://localhost:5013
 
 Note: if you need the application to bind on a specific port (e.g. 8080), use **-e WEB_PORT=8080**.
 
 ## Docker Registry
+
 ### Pull the docker image from Docker Hub
+
 `docker pull dolevf/dvga`
 
+Docker Hub image: [dolevf/dvga](https://hub.docker.com/r/dolevf/dvga)
+
 ### Create a container from the image
+
 `docker run -t -p 5013:5013 -e WEB_HOST=0.0.0.0 dolevf/dvga`
 
 In your browser, navigate to http://localhost:5013
 
 ## Server
-**Note**: Python 3.10 is **not supported** yet!
 
 ### Navigate to /opt
+
 `cd /opt/`
 
 ### Clone the repository
+
 `git clone git@github.com:dolevf/Damn-Vulnerable-GraphQL-Application.git && cd Damn-Vulnerable-GraphQL-Application`
 
 ### Install Requirements
+
 `pip3 install -r requirements.txt`
 
 ### Run application
+
 `python3 app.py`
 
 In your browser, navigate to http://localhost:5013.
 
 # Screenshots
+
 ![DVGA](https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application/blob/master/static/screenshots/index.png)
 ![DVGA](https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application/blob/master/static/screenshots/solution.png)
 ![DVGA](https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application/blob/master/static/screenshots/pastes.png)
 ![DVGA](https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application/blob/master/static/screenshots/create.png)
 
 # Maintainers
+
 * [Dolev Farhi](https://github.com/dolevf)
 * [Connor McKinnon](https://github.com/connormckinnon93)
 * [Nick Aleks](https://github.com/nicholasaleks)
@@ -138,6 +160,7 @@ A big Thank You to the kind people who helped make DVGA better:
  * [Halfluke](https://github.com/halfluke)
 
 # Mentions
+* [Black Hat GraphQL - No Starch Press](https://blackhatgraphql.com)
 * [OWASP Vulnerable Web Applications Directory](https://owasp.org/www-project-vulnerable-web-applications-directory/)
 * [GraphQL Weekly](https://www.graphqlweekly.com/issues/221/#content)
 * [DZone API Security Weekly](https://dzone.com/articles/api-security-weekly-issue-121)
@@ -158,10 +181,11 @@ A big Thank You to the kind people who helped make DVGA better:
 * [Hacking Simplified Part #3](https://www.youtube.com/watch?v=kUTIFx8vGQs)
 
 # Disclaimer
+
 DVGA is highly insecure, and as such, should not be deployed on internet facing servers. By default, the application is listening on 127.0.0.1 to avoid misconfigurations.
 
 DVGA is intentionally flawed and vulnerable, as such, it comes with no warranties. By using DVGA, you take full responsibility for using it.
 
 # License
-It is distributed under the MIT License. See LICENSE for more information.
 
+It is distributed under the MIT License. See LICENSE for more information.
