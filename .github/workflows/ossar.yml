@@ -54,3 +54,9 @@ jobs:
       uses: github/codeql-action/upload-sarif@v3
       with:
         sarif_file: ${{ steps.ossar.outputs.sarifFile }}
+
+    - name: Upload SARIF
+      uses: actions/upload-artifact@v4
+      with:
+        name: my-sarif
+        path: ${{ steps.ossar.outputs.sarifFile }}
